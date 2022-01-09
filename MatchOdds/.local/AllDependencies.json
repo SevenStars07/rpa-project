@@ -3537,15 +3537,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adrian\\.nuget\\packages\\": {}
+    "C:\\Users\\justs\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "MatchOdds",
       "projectName": "MatchOdds",
-      "projectPath": "C:\\Users\\Adrian\\Documents\\Facultate\\rpa\\rpa-project\\MatchOdds\\.local",
-      "packagesPath": "C:\\Users\\Adrian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adrian\\Documents\\Facultate\\rpa\\rpa-project\\MatchOdds\\.local"
+      "projectPath": "C:\\Facultate\\rpa-project\\MatchOdds\\.local",
+      "packagesPath": "C:\\Users\\justs\\.nuget\\packages\\",
+      "outputPath": "C:\\Facultate\\rpa-project\\MatchOdds\\.local"
     },
     "frameworks": {
       "net461": {
