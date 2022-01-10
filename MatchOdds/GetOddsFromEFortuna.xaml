@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1083,1664</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1001,2243</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetOddsFromSuperbet_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -43,7 +43,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -69,6 +69,8 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -77,7 +79,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="GetOddsFromSuperbet" sap:VirtualizedContainerService.HintSize="572,1599" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetOddsFromSuperbet" sap:VirtualizedContainerService.HintSize="572,2178" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="team1NameList" />
       <Variable x:TypeArguments="x:String" Name="team1FinalName" />
@@ -104,6 +106,7 @@
         <OutArgument x:TypeArguments="x:String" x:Key="teamName">[team1FinalName]</OutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Navigating to EFortuna&quot;]" />
     <ui:NavigateTo Browser="[browser]" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="530,59" sap2010:WorkflowViewState.IdRef="NavigateTo_6" Url="[&quot;https://efortuna.ro/cautare?searchValue=&quot; + team1FinalName]" />
     <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'PariuriOn Page'" sap:VirtualizedContainerService.HintSize="530,344" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="f561bc73cf370baada26df8ddaccd8bc">
       <ui:BrowserScope.Body>
@@ -130,13 +133,14 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="530,720" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Parsing data from Casa Pariurilor&quot;]" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="530,1037" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="480,572" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="480,889" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="team1Odds" />
               <Variable x:TypeArguments="s:String[]" Name="teams" />
@@ -148,7 +152,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,574" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,797" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -163,7 +167,7 @@
                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="713,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="755,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -193,7 +197,7 @@
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <If Condition="[(team1.Contains(foundTeam1) And team2.Contains(foundTeam2)) Or (team1.Contains(foundTeam1) And foundTeam2.Contains(team2)) Or (foundTeam1.Contains(team1) And team2.Contains(foundTeam2)) Or (foundTeam1.Contains(team1) And foundTeam2.Contains(team2))]" sap:VirtualizedContainerService.HintSize="713,277" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[(team1.Contains(foundTeam1) And team2.Contains(foundTeam2)) Or (team1.Contains(foundTeam1) And foundTeam2.Contains(team2)) Or (foundTeam1.Contains(team1) And team2.Contains(foundTeam2)) Or (foundTeam1.Contains(team1) And foundTeam2.Contains(team2))]" sap:VirtualizedContainerService.HintSize="755,500" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
                       <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                         <ui:MultipleAssign.AssignOperations>
@@ -219,34 +223,42 @@
                       </ui:MultipleAssign>
                     </If.Then>
                     <If.Else>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
-                        <ui:MultipleAssign.AssignOperations>
-                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[team1OddsEFortuna]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">-</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[team2OddsEFortuna]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">-</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                          </scg:List>
-                        </ui:MultipleAssign.AssignOperations>
-                      </ui:MultipleAssign>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Match not found on EFortuna&quot;]" />
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[team1OddsEFortuna]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">-</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[team2OddsEFortuna]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">-</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                      </Sequence>
                     </If.Else>
                   </If>
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:InvalidOperationException" sap:VirtualizedContainerService.HintSize="404,198" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <Catch x:TypeArguments="s:InvalidOperationException" sap:VirtualizedContainerService.HintSize="404,421" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -257,28 +269,36 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:InvalidOperationException" Name="exception" />
                     </ActivityAction.Argument>
-                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
-                      <ui:MultipleAssign.AssignOperations>
-                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[team1OddsEFortuna]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">-</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[team2OddsEFortuna]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">-</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                        </scg:List>
-                      </ui:MultipleAssign.AssignOperations>
-                    </ui:MultipleAssign>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Match not found on Casa Pariurilor&quot;]" />
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                        <ui:MultipleAssign.AssignOperations>
+                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[team1OddsEFortuna]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">-</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[team2OddsEFortuna]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">-</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                          </scg:List>
+                        </ui:MultipleAssign.AssignOperations>
+                      </ui:MultipleAssign>
+                    </Sequence>
                   </ActivityAction>
                 </Catch>
               </TryCatch.Catches>
